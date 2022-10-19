@@ -29,9 +29,17 @@
           />
         </div>
 
+        <!-- select input -->
         <div>
-          <select>
-            <option value="">option 1</option>
+          <select
+            class="bg-white py-3 px-5 rounded shadow font-semibold text-gray-800"
+          >
+            <option value="" disabled selected>Filter by Region</option>
+            <option value="">Africa</option>
+            <option value="">America</option>
+            <option value="">Asia</option>
+            <option value="">Europe</option>
+            <option value="">Oceania</option>
           </select>
         </div>
       </div>
