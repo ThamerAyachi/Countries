@@ -6,3 +6,8 @@
 *{
     font-family: 'Nunito Sans', sans-serif;
 }
+
+input:focus {
+    outline: none;
+    border: specify yours;
+ }

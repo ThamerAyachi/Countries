@@ -1,5 +1,7 @@
 <template>
-  <nav class="flex justify-between shadow py-3 lg:px-20 px-3 items-center mb-5">
+  <nav
+    class="flex justify-between py-3 lg:px-20 px-3 items-center mb-5 bg-white shadow-sm"
+  >
     <div class="p-2 font-bold lg:text-2xl">Where in the world ?</div>
     <button
       class="flex items-center space-x-2 font-semibold lg:text-base text-sm"
