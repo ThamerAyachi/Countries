@@ -48,10 +48,11 @@
 			<div class="my-10">
 				<!-- elements -->
 				<div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 xl:gap-5">
-					<div
+					<router-link
+						to="/"
 						v-for="(c, i) in countries"
 						:key="i"
-						class="bg-white mx-10 rounded shadow overflow-hidden"
+						class="bg-white xl:mx-7 mx-3 rounded shadow overflow-hidden my-5"
 					>
 						<!-- flag -->
 						<div class="w-full">
@@ -80,7 +81,7 @@
 								</p>
 							</div>
 						</div>
-					</div>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -102,10 +103,13 @@ export default {
 		const data = await this.$store.dispatch("getAllCountries");
 
 		this.allCountries = data;
-		for (let i = this.oxe; i < this.oxe + 12; i++) {
-			this.countries.push(this.allCountries[i]);
-		}
-		console.log(this.countries);
+
+		this.allCountries.map((c) => {
+			if (!c.capital) {
+				c.capital = ["Null"];
+			}
+		});
+		this.countries = this.allCountries;
 	},
 };
 </script>
