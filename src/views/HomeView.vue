@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<div class="lg:mx-52 mx-5 my-10">
+		<div class="xl:mx-52 mx-5 my-10">
 			<!-- inputs -->
 			<div class="lg:flex justify-between items-center">
 				<!-- search input -->
@@ -47,7 +47,7 @@
 			<!-- content -->
 			<div class="my-10">
 				<!-- elements -->
-				<div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5">
+				<div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 xl:gap-5">
 					<div
 						v-for="(c, i) in countries"
 						:key="i"
