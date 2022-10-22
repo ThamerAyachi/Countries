@@ -46,6 +46,7 @@
 
 			<!-- content -->
 			<div class="my-10">
+				<!-- spine effect -->
 				<div v-if="!countries[0]" class="w-full flex justify-center my-32">
 					<svg
 						aria-hidden="true"
@@ -111,6 +112,8 @@
 </template>
 
 <script>
+import { numberFormat } from "../assets/methods.js";
+
 export default {
 	name: "HomeView",
 	data() {
@@ -127,6 +130,7 @@ export default {
 		this.allCountries = data;
 
 		this.allCountries.map((c) => {
+			c.population = numberFormat(c.population);
 			if (!c.capital) {
 				c.capital = ["Null"];
 			}
