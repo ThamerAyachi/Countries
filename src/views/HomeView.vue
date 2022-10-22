@@ -52,7 +52,7 @@
 						to="/"
 						v-for="(c, i) in countries"
 						:key="i"
-						class="bg-white xl:mx-7 mx-3 rounded shadow overflow-hidden my-5"
+						class="bg-white xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
 					>
 						<!-- flag -->
 						<div class="w-full">
