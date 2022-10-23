@@ -34,14 +34,16 @@
 				<!-- select input -->
 				<div>
 					<select
+						v-model="select"
+						@change="byRegion()"
 						class="bg-white py-3 px-5 rounded shadow font-semibold text-gray-800"
 					>
 						<option value="" disabled selected>Filter by Region</option>
-						<option value="">Africa</option>
-						<option value="">America</option>
-						<option value="">Asia</option>
-						<option value="">Europe</option>
-						<option value="">Oceania</option>
+						<option>Africa</option>
+						<option>Americas</option>
+						<option>Asia</option>
+						<option>Europe</option>
+						<option>Oceania</option>
 					</select>
 				</div>
 			</div>
@@ -124,6 +126,7 @@ export default {
 			countries: [],
 			oxe: 0,
 			research: "",
+			select: "",
 		};
 	},
 	components: {},
@@ -134,6 +137,14 @@ export default {
 				if (
 					c.name.official.toLowerCase().includes(this.research.toLowerCase())
 				) {
+					this.countries.push(c);
+				}
+			});
+		},
+		byRegion() {
+			this.countries = [];
+			this.allCountries.forEach((c) => {
+				if (c.region == this.select) {
 					this.countries.push(c);
 				}
 			});
