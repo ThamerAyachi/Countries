@@ -26,6 +26,8 @@
 						type="search"
 						placeholder="Search for a country..."
 						class="lg:pr-28"
+						v-model="research"
+						@input="searchByName()"
 					/>
 				</div>
 
@@ -121,9 +123,22 @@ export default {
 			allCountries: [],
 			countries: [],
 			oxe: 0,
+			research: "",
 		};
 	},
 	components: {},
+	methods: {
+		searchByName() {
+			this.countries = [];
+			this.allCountries.forEach((c) => {
+				if (
+					c.name.official.toLowerCase().includes(this.research.toLowerCase())
+				) {
+					this.countries.push(c);
+				}
+			});
+		},
+	},
 	async mounted() {
 		const data = await this.$store.dispatch("getAllCountries");
 
