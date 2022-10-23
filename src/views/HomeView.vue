@@ -23,7 +23,7 @@
 					</svg>
 
 					<input
-						type="search"
+						type="text"
 						placeholder="Search for a country..."
 						class="lg:pr-28"
 						v-model="research"
@@ -51,7 +51,10 @@
 			<!-- content -->
 			<div class="my-10">
 				<!-- spine effect -->
-				<div v-if="!countries[0]" class="w-full flex justify-center my-32">
+				<div
+					v-if="!countries[0] && dataFound == 0"
+					class="w-full flex justify-center my-32"
+				>
 					<svg
 						aria-hidden="true"
 						class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -69,6 +72,12 @@
 						/>
 					</svg>
 					<span class="sr-only">Loading...</span>
+				</div>
+				<div
+					v-else-if="!countries[0] && dataFound == 1"
+					class="w-full flex justify-center my-32 text-gray-700"
+				>
+					Countries not found.
 				</div>
 				<!-- elements -->
 				<div
@@ -125,6 +134,7 @@ export default {
 			allCountries: [],
 			countries: [],
 			oxe: 0,
+			dataFound: 0,
 			research: "",
 			select: "",
 		};
@@ -162,6 +172,7 @@ export default {
 			}
 		});
 		this.countries = this.allCountries;
+		this.dataFound = 1;
 	},
 };
 </script>
