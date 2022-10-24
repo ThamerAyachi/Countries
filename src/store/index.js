@@ -14,6 +14,14 @@ export default createStore({
 				return err;
 			}
 		},
+		getCountryByName: async (p, name) => {
+			try {
+				const rest = await instance.get(`name/${name}`);
+				return rest;
+			} catch (err) {
+				return err;
+			}
+		},
 	},
 	modules: {},
 });
