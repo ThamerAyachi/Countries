@@ -1,8 +1,8 @@
 <template>
 	<div class="home">
-		<div class="xl:mx-52 mx-5 my-10">
+		<div class="2xl:mx-52 xl:mx-32 mx-5 my-10">
 			<!-- inputs -->
-			<div class="lg:flex justify-between items-center">
+			<div class="md:flex justify-between items-center">
 				<!-- search input -->
 				<div
 					class="bg-white flex items-center px-6 py-3 rounded shadow space-x-3 font-semibold text-dg my-3"
@@ -85,14 +85,14 @@
 					class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 xl:gap-5"
 				>
 					<router-link
-						:to="`/Single/${c.name.common.replaceAll(' ', '_')}`"
+						:to="`/Single/${c.name.official.replaceAll(' ', '_')}`"
 						v-for="(c, i) in countries"
 						:key="i"
 						class="bg-white xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
 					>
 						<!-- flag -->
 						<div class="w-full">
-							<img :src="c.flags.png" alt="" class="h-40 w-full" />
+							<img :src="c.flags.svg" alt="" class="h-40 w-full" />
 						</div>
 
 						<!-- description -->
