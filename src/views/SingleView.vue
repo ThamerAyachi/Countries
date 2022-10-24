@@ -92,6 +92,21 @@
 						</p>
 					</div>
 				</div>
+				<div
+					class="flex my-10 space-x-2 items-center"
+					v-if="borders.length != 0"
+				>
+					<p class="font-semibold">Border Countries:</p>
+					<router-link
+						:to="b"
+						@click="getDataByParam(b)"
+						v-for="(b, j) in borders"
+						:key="j"
+						class="bg-white rounded shadow px-2 py-1"
+					>
+						{{ b }}
+					</router-link>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -117,32 +132,62 @@ export default {
 			currenciesName: "",
 			languages: [],
 			nativeName: "",
+			borders: [],
 		};
 	},
+	methods: {
+		async getData() {
+			try {
+				const rest = await this.$store.dispatch(
+					"getCountryByName",
+					this.countryName
+				);
+				if (rest.status == 200) this.country = rest.data[0];
+
+				this.currencies = rest.data[0].currencies;
+				Object.keys(rest.data[0].languages).forEach((l) => {
+					this.languages.push(rest.data[0].languages[l]);
+				});
+				this.nativeName =
+					rest.data[0].name.nativeName[
+						Object.keys(rest.data[0].name.nativeName)[0]
+					].common;
+				if (rest.data[0].borders) this.borders = rest.data[0].borders;
+			} catch (e) {
+				console.log(e);
+			}
+
+			this.country.population = numberFormat(this.country.population);
+			this.currenciesName =
+				this.currencies[Object.keys(this.currencies)[0]].name;
+		},
+		async getDataByParam(name) {
+			try {
+				const rest = await this.$store.dispatch("getCountryByName", name);
+				if (rest.status == 200) this.country = rest.data[0];
+
+				this.currencies = rest.data[0].currencies;
+				Object.keys(rest.data[0].languages).forEach((l) => {
+					this.languages.push(rest.data[0].languages[l]);
+				});
+				this.nativeName =
+					rest.data[0].name.nativeName[
+						Object.keys(rest.data[0].name.nativeName)[0]
+					].common;
+				if (rest.data[0].borders) this.borders = rest.data[0].borders;
+				else this.borders = [];
+			} catch (e) {
+				console.log(e);
+			}
+
+			this.country.population = numberFormat(this.country.population);
+			this.currenciesName =
+				this.currencies[Object.keys(this.currencies)[0]].name;
+		},
+	},
 	async mounted() {
-		try {
-			const rest = await this.$store.dispatch(
-				"getCountryByName",
-				this.countryName
-			);
-			if (rest.status == 200) this.country = rest.data[0];
-
-			this.currencies = rest.data[0].currencies;
-			Object.keys(rest.data[0].languages).forEach((l) => {
-				this.languages.push(rest.data[0].languages[l]);
-			});
-			this.nativeName =
-				rest.data[0].name.nativeName[
-					Object.keys(rest.data[0].name.nativeName)[0]
-				].common;
-		} catch (e) {
-			console.log(e);
-		}
-
-		this.country.population = numberFormat(this.country.population);
-		this.currenciesName = this.currencies[Object.keys(this.currencies)[0]].name;
-
-		// console.log(this.nativeName);
+		await this.getData();
+		console.log(this.borders);
 	},
 };
 </script>

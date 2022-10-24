@@ -85,7 +85,7 @@
 					class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 xl:gap-5"
 				>
 					<router-link
-						:to="`/Single/${c.name.official.replaceAll(' ', '_')}`"
+						:to="`/single/${c.name.official.replaceAll(' ', '_')}`"
 						v-for="(c, i) in countries"
 						:key="i"
 						class="bg-white xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
