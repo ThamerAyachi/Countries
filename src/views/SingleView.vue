@@ -211,7 +211,6 @@ export default {
 	},
 	async mounted() {
 		await this.getData();
-		console.log(this.borders);
 	},
 };
 </script>

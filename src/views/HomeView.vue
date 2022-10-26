@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import { numberFormat } from "../assets/methods.js";
+// import { numberFormat } from "../assets/methods.js";
 
 export default {
 	name: "HomeView",
@@ -166,7 +166,6 @@ export default {
 		this.allCountries = data;
 
 		this.allCountries.map((c) => {
-			c.population = numberFormat(c.population);
 			if (!c.capital) {
 				c.capital = ["Null"];
 			}
