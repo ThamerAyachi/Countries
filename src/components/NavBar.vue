@@ -1,9 +1,10 @@
 <template>
 	<nav
-		class="flex justify-between py-3 lg:px-20 px-3 items-center mb-5 bg-white shadow-sm"
+		class="flex justify-between py-3 lg:px-20 px-3 items-center mb-5 bg-white shadow-sm dark:bg-dElement dark:text-white"
 	>
 		<div class="p-2 font-bold lg:text-2xl">Where in the world ?</div>
 		<button
+			@click="toggleDark()"
 			class="flex items-center space-x-2 font-semibold lg:text-base text-sm"
 		>
 			<svg
@@ -27,8 +28,17 @@
 </template>
 
 <script>
+import { useDark, useToggle } from "@vueuse/core";
+
 export default {
 	name: "nav-bar",
+	setup() {
+		const isDark = useDark();
+		const toggleDark = useToggle(isDark);
+
+		console.log(isDark.value);
+		return { toggleDark };
+	},
 };
 </script>
 

@@ -1,11 +1,11 @@
 <template>
-	<div class="home">
+	<div class="home dark:text-white">
 		<div class="2xl:mx-52 xl:mx-32 mx-5 my-10">
 			<!-- inputs -->
 			<div class="md:flex justify-between items-center">
 				<!-- search input -->
 				<div
-					class="bg-white flex items-center px-6 py-3 rounded shadow space-x-3 font-semibold text-dg my-3"
+					class="bg-white dark:bg-dElement dark:text-white flex items-center px-6 py-3 rounded shadow space-x-3 font-semibold text-dg my-3"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
 					<input
 						type="text"
 						placeholder="Search for a country..."
-						class="lg:pr-28"
+						class="lg:pr-28 dark:bg-dElement"
 						v-model="research"
 						@input="searchByName()"
 					/>
@@ -36,7 +36,7 @@
 					<select
 						v-model="select"
 						@change="byRegion()"
-						class="bg-white py-3 px-5 rounded shadow font-semibold text-gray-800"
+						class="bg-white dark:bg-dElement dark:text-white py-3 px-5 rounded shadow font-semibold text-gray-800"
 					>
 						<option value="" disabled selected>Filter by Region</option>
 						<option>Africa</option>
@@ -75,7 +75,7 @@
 				</div>
 				<div
 					v-else-if="!countries[0] && dataFound == 1"
-					class="w-full flex justify-center my-32 text-gray-700"
+					class="w-full flex justify-center my-32 text-gray-700 dark:text-white"
 				>
 					Countries not found.
 				</div>
@@ -88,7 +88,7 @@
 						:to="`/single/${c.name.official.replaceAll(' ', '_')}`"
 						v-for="(c, i) in countries"
 						:key="i"
-						class="bg-white xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
+						class="bg-white dark:bg-dElement xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
 					>
 						<!-- flag -->
 						<div class="w-full">
