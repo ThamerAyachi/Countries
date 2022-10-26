@@ -36,7 +36,6 @@ export default {
 		const isDark = useDark();
 		const toggleDark = useToggle(isDark);
 
-		console.log(isDark.value);
 		return { toggleDark };
 	},
 };
