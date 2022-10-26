@@ -91,8 +91,8 @@
 						class="bg-white dark:bg-dElement xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
 					>
 						<!-- flag -->
-						<div class="w-full">
-							<img :src="c.flags.svg" alt="" class="h-40 w-full" />
+						<div class="w-full overflow-hidden">
+							<img :src="c.flags.png" alt="" class="h-40 w-full" />
 						</div>
 
 						<!-- description -->
@@ -125,8 +125,6 @@
 </template>
 
 <script>
-// import { numberFormat } from "../assets/methods.js";
-
 export default {
 	name: "HomeView",
 	data() {
