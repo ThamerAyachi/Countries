@@ -1,10 +1,10 @@
 <template>
-	<div class="2xl:mx-52 xl:mx-32 mx-5 my-10">
+	<div class="2xl:mx-52 xl:mx-32 mx-5 my-10 dark:text-white">
 		<!-- button to go back -->
 		<div class="flex text-sm">
 			<router-link
 				to="/"
-				class="flex items-center space-x-3 shadow-md rounded bg-white py-1 px-5"
+				class="flex items-center space-x-3 shadow-md rounded bg-white dark:bg-dElement py-1 px-5"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@
 						@click="getDataByParam(b)"
 						v-for="(b, j) in borders"
 						:key="j"
-						class="bg-white rounded shadow px-2 py-1"
+						class="bg-white dark:bg-dElement rounded shadow px-2 py-1"
 					>
 						{{ b }}
 					</router-link>
