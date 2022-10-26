@@ -88,7 +88,7 @@
 						:to="`/single/${c.name.official.replaceAll(' ', '_')}`"
 						v-for="(c, i) in countries"
 						:key="i"
-						class="bg-white dark:bg-dElement xl:mx-5 mx-3 rounded shadow overflow-hidden my-5"
+						class="bg-white dark:bg-dElement xl:mx-5 mx-3 rounded shadow overflow-hidden my-5 hover:rotate-3 transform duration-200"
 					>
 						<!-- flag -->
 						<div class="w-full overflow-hidden">
